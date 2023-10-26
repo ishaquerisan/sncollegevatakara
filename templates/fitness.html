@@ -1,0 +1,37 @@
+{% extends "header.html" %} {% block content %} {% load static %}
+<div class="container banner">
+  <div class="heading">COLLEGE FITNESS PROGRAMME</div>
+</div>
+
+<div class="container">
+  <div class="sec-container column-flex">
+    <div class="flex gap full">
+      <div class="small-container flex-just-start">
+        <div class="head">VIGNESH KUMAR</div>
+        <div class="light">STAFF CO-ORDINATOR</div>
+      </div>
+      <div class="small-container basis flex">
+        <img src="{% static 'assets/phone.svg'%}" class="img-small" alt="" />
+        <div class="head center">+91 8505 234 456</div>
+      </div>
+    </div>
+    <div class="small-container">
+      <article>
+        University of Calicut started College Fitness programme during the year
+        2018 onwards. First year students are eligible to join the fitness
+        programme. Marks are awarded to the students who passed the tests
+        conducted by the department of physical education.
+      </article>
+    </div>
+    <div class="small-container imgbox">
+      <img src="{% static 'assets/img.jpg' %}" alt="" />
+      <img src="{% static 'assets/img.jpg' %}" alt="" />
+      <img src="{% static 'assets/img.jpg' %}" alt="" />
+      <img src="{% static 'assets/img.jpg' %}" alt="" />
+      <img src="{% static 'assets/img.jpg' %}" alt="" />
+      <img src="{% static 'assets/img.jpg' %}" alt="" />
+    </div>
+  </div>
+</div>
+
+{% endblock %}

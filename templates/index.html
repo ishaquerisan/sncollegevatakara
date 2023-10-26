@@ -1,0 +1,116 @@
+{% extends "header.html" %} {% block content %} {% load static %}
+<div class="container">
+  <section class="hero">
+    <img class="mySlides fade" src="{% static 'assets/clg/sn1.jpg' %}" alt="" />
+    <img class="mySlides fade" src="{% static 'assets/clg/sn2.jpg' %}" alt="" />
+    <img class="mySlides fade" src="{% static 'assets/clg/sn4.jpg' %}" alt="" />
+    <img class="mySlides fade" src="{% static 'assets/clg/sn3.jpg' %}" alt="" />
+    <img class="mySlides fade" src="{% static 'assets/clg/sn5.jpg' %}" alt="" />
+    <img class="mySlides fade" src="{% static 'assets/clg/sn6.jpg' %}" alt="" />
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </section>
+  <section>
+    <div class="detailsbox">
+      <div class="image">
+        <img src="{% static 'assets/img1.png' %}" alt="" />
+        <div class="name">Sri.P.M. Raveendran</div>
+      </div>
+      <div class="text">
+        <div class="head">MESSAGE FROM THE MANAGER</div>
+        <div class="mssg">
+          SNDP Yogam is the biggest social organization in kerala. As a part of
+          their social service, the Yogam is running agood number of aided and
+          unaided colleges, Higher Secondary Schools,High Schools, UP and LP
+          Schools,In order to provide higher education facilities to the weaker
+          sections of the society, the Union started an Arts and ScienceCollege
+          named after the Jagat Guru Sri Narayana as Sree Narayana College,
+          Vatakara.
+        </div>
+        <div class="readmore flex">
+          <a href="#" class="moretext">Read More</a
+          ><img
+            class="arrow"
+            src="{% static 'assets/rightarrow.svg' %}"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+    <div class="detailsbox">
+      <div class="text">
+        <div class="head">DEAR PARENTS AND STUDENTS</div>
+        <div class="mssg">
+          Sree Narayana College, Vatakara was established in 2003 and within
+          this short span of time has placed itself at the very top among the
+          self financing colleges affiliated to the University of Calicut.
+          Located on asunny hilltop, in a verdant surrounding, Sree Naryana
+          College with its will laid out buildings, presents a picture of scenic
+          beauty, refreshing to the sight and mind. The college is administered
+          by SNDP Union ..
+        </div>
+        <div class="readmore flex">
+          <a href="#" class="moretext">Read More</a
+          ><img
+            class="arrow"
+            src="{% static 'assets/rightarrow.svg' %}"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="image">
+        <img src="assets/img2.png' %}" alt="" />
+        <div class="name">Sri.P.M. Raveendran</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="container ncon">
+  <div class="part">
+    <div class="heading">Recent News & Updates</div>
+    <div class="event-group ev">
+      {% for article in news %}
+      <a href="{% url 'news' article.id %}" class="news-box">
+        <div class="text">{{ article.title }}</div>
+        <div class="date-box">
+          {{ article.date|date:"D" }}, {{ article.date }}
+        </div>
+      </a>
+      {% endfor %}
+
+      <div class="readmore flex">
+        <a href="#" class="moretext">Read All News</a
+        ><img class="arrow" src="{% static 'assets/downarrow.svg' %}" alt="" />
+      </div>
+    </div>
+  </div>
+  <div class="part">
+    <div class="heading">Upcoming Events</div>
+    <div class="event-group ev">
+      {% for event in events %}
+      <a href="{% url 'events' event.id %}" class="event-box">
+        <div class="date line">
+          <div class="day">{{event.date.day}}</div>
+          <div class="month">{{ event.date|date:"M" }}</div>
+          <div class="year">{{event.date.year}}</div>
+        </div>
+        <div class="info">
+          <div class="headingSmall">{{ event.title }}</div>
+          <div class="otherinfo">
+            <div>{{ event.time }}</div>
+            <div>{{ event.venue }}</div>
+          </div>
+        </div>
+      </a>
+      {% endfor %}
+
+      <div class="readmore flex">
+        <a href="#">View All Events</a
+        ><img src="{% static 'assets/rightarrow.svg' %}" alt="" />
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

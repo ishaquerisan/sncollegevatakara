@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Employee List</title>
+    <style>
+      /* CSS for styling the employee list table */
+      .employee-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px auto;
+      }
+
+      .employee-table,
+      .employee-table th,
+      .employee-table td {
+        border: 1px solid #ccc;
+      }
+
+      .employee-table th,
+      .employee-table td {
+        padding: 10px;
+        text-align: left;
+      }
+
+      .employee-table th {
+        background-color: #f2f2f2;
+      }
+
+      .employee-photo {
+        max-width: 100px;
+        height: auto;
+      }
+
+      /* CSS for action buttons */
+      .btn-edit,
+      .btn-add,
+      .btn-delete {
+        display: inline-block;
+        padding: 5px 10px;
+        margin: 5px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 4px;
+      }
+
+      .btn-edit {
+        background-color: #3498db;
+        color: #fff;
+      }
+      .btn-add {
+        background-color: green;
+        color: #fff;
+      }
+
+      .btn-delete {
+        background-color: #e74c3c;
+        color: #fff;
+      }
+      .btn-add:hover {
+        background-color: #2980b9;
+      }
+      .btn-edit:hover {
+        background-color: #2980b9;
+      }
+
+      .btn-delete:hover {
+        background-color: #c0392b;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+      }
+
+      header {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 0;
+      }
+
+      nav {
+        text-align: center;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      li {
+        display: inline;
+        margin: 0 10px;
+      }
+
+      a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="{% url 'employee_list' %}">Employee </a></li>
+          <li><a href="{% url 'event_list' %}">Event</a></li>
+          <li>
+            <a href="{% url 'list_notifications' %}"> Notifications</a>
+          </li>
+          <li><a href="{% url 'news_list' %}">News</a></li>
+        </ul>
+      </nav>
+    </header>
+    <h2>Employee List</h2>
+    <a class="btn-add" href="{% url 'create_employee' %}">New </a>
+
+    <table class="employee-table">
+      <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>department</th>
+        <th>Photo</th>
+        <th>Qualification</th>
+        <th>Actions</th>
+      </tr>
+      {% for employee in employees %}
+      <tr>
+        <td>{{ employee.name }}</td>
+        <td>{{ employee.position }}</td>
+        <td>{{ employee.department }}</td>
+        <td>
+          <img
+            src="{{ employee.photo.url }}"
+            alt="{{ employee.name }} Photo"
+            class="employee-photo"
+          />
+        </td>
+        <td>{{ employee.qualification }}</td>
+        <td>
+          <a class="btn-edit" href="{% url 'update_employee' employee.id %}"
+            >Edit</a
+          >
+          <a class="btn-delete" href="{% url 'delete_employee' employee.id %}"
+            >Delete</a
+          >
+        </td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="5">No employees available.</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

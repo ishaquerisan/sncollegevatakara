@@ -1,0 +1,98 @@
+<!-- update_news.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Edit News Article</title>
+  </head>
+  <style>
+    /* CSS for styling the form */
+    .form-container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input[type="text"],
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    input[type="file"] {
+      width: 100%;
+      margin-top: 5px;
+      margin-bottom: 10px;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+  <body>
+    <div class="form-container">
+      <h1>Edit News Article</h1>
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="title">Title:</label>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          value="{{ article.title }}"
+          required
+        />
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required>
+{{ article.description }}</textarea
+        >
+
+        <label for="photos">Photos (multiple):</label>
+        <input
+          type="file"
+          id="photos"
+          name="photos"
+          accept="image/*"
+          multiple
+        />
+        {% for image in article.images.all %}
+        <div>
+          <img src="{{ image.image.url }}" alt="Image" width="100" />
+        </div>
+        {% endfor %}
+
+        <button type="submit">Update</button>
+      </form>
+    </div>
+  </body>
+</html>

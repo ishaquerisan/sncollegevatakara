@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Employee Form</title>
+    <style>
+      /* CSS for styling the form */
+      .form-container {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      label {
+        display: block;
+        margin-top: 10px;
+      }
+
+      input[type="text"],
+      select {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      input[type="file"] {
+        width: 100%;
+        margin-top: 5px;
+        margin-bottom: 10px;
+      }
+
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      button {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>Employee Form</h2>
+      <form id="employeeForm" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="position">Position:</label>
+        <select id="position" name="position">
+          <option value="assistant professor">assistant professor</option>
+          <option value="hod">Hod</option>
+          <option value="professor">professor</option>
+        </select>
+        <label for="position">Department:</label>
+        <select id="position" name="department">
+          <option value="maths">maths</option>
+          <option value="cs">cs</option>
+          <option value="chemistry">chemistry</option>
+        </select>
+        <label for="photo">Photo:</label>
+        <input type="file" id="photo" name="photo" accept="image/*" required />
+
+        <label for="qualification">Qualification:</label>
+        <textarea
+          id="qualification"
+          name="qualification"
+          rows="4"
+          required
+        ></textarea>
+        {% comment %} <input type="submit" /> {% endcomment %}
+        <button type="Submit" value="Submit">Submit</button>
+      </form>
+    </div>
+
+    <script>
+      // JavaScript to handle form submission
+      function submitForm() {
+        const form = document.getElementById("employeeForm");
+        const formData = new FormData(form);
+
+        // You can now send formData to the server using fetch or another method.
+        // For this example, we'll just log the form data.
+        for (const pair of formData.entries()) {
+          console.log(pair[0] + ": " + pair[1]);
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Update Notification</title>
+    <style>
+      /* CSS for styling the form */
+      .form-container {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+  
+      label {
+        display: block;
+        margin-top: 10px;
+      }
+  
+      input[type="text"],
+      select {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+  
+      input[type="file"] {
+        width: 100%;
+        margin-top: 5px;
+        margin-bottom: 10px;
+      }
+  
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+  
+      button {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+  
+      button:hover {
+        background-color: #45a049;
+      }
+    </style>
+    <body>
+      <div class="form-container">
+      <h1>Update Notification</h1>
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="category" class="radio-label">Category:</label>
+        
+        <input type="radio" name="category" value="ug" {% if notification.category %}checked {%endif%}>    ug
+        {% if notification.category == ug %} ( Current setting ) {% else %} {% endif %}</input>
+        <p></p>
+        <input type="radio" name="category" value="pg"  {% if notification.category %}checked {%endif%}>      pg
+        {% if notification.category == pg %} ( Current setting ) {% else %} {% endif %}</input>
+        <p></p>
+        <label for="title">Title:</label>
+        <input
+          type="text"
+          name="title"
+          value="{{ notification.title }}"
+          required
+        />
+
+        <label for="description">Description:</label>
+        <textarea name="description" rows="4" required>
+{{ notification.description }}</textarea
+        >
+
+        <label for="file" class="file-label">File:</label>
+        <label for="file" class="file-input-label">Choose a file...</label>
+        <input type="file" name="file" id="file" />
+
+        <button type="submit" class="btn">Update</button>
+      </form>
+      <a href="{% url 'list_notifications' %}">Back to List</a>
+    </div>
+  </body>
+</html>
