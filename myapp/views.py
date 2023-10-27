@@ -21,15 +21,22 @@ def news(request,nw_id):
     nw = get_object_or_404(News, pk=nw_id)
     nws = News.objects.all().order_by('-id')[:3]
     return render(request, 'news.html',{'news': nw,'newses': nws})
+def allnews(request):
+    nws = News.objects.all().order_by('-id')
+    return render(request, 'allnews.html',{'newses': nws})
 
 def events(request,ev_id):
     ev = get_object_or_404(Event, pk=ev_id)
     evt = Event.objects.all().order_by('-date')[:3]
     return render(request, 'events.html',{'events': evt,'evt': ev})
 
+def allevents(request):
+    evt = Event.objects.all().order_by('-date')
+    return render(request, 'allevents.html',{'events': evt})
+
 def faculty(request,dept):
     employees = Employee.objects.filter(department=dept)
-    return render(request, 'faculty.html',{'employees':employees})
+    return render(request, 'faculty.html',{'employees':employees,'depart':dept})
 def club(request):
     # employees = Employee.objects.all()
     return render(request, 'nss.html')

@@ -5,8 +5,13 @@ urlpatterns = [
     # ... other URL patterns
     path('', views.index, name='index'),
     path('news/<int:nw_id>/', views.news, name='news'),
+    path('allnews', views.allnews, name='allnews'),
     path('events/<int:ev_id>/', views.events, name='events'),
+    path('allevents', views.allevents, name='allevents'),
     path('faculty/<str:dept>/', views.faculty, name='faculty'),
+    path('notification', views.notification, name='notification'),
+    path('notification2/<int:noti_id>/', views.notification2, name='notification2'),
+    
     path('club', views.club, name='club'),
     path('fitness', views.fitness, name='fitness'),
     path('BHOOMITHRA_SENA_CLUB', views.bhoomi, name='bhoomi'),
@@ -14,8 +19,7 @@ urlpatterns = [
     path('placement', views.placement, name='placement'),
     path('scholarship', views.scholarship, name='scholarship'),
     path('courses', views.courses, name='courses'),
-    path('notification', views.notification, name='notification'),
-    path('notification2/<int:noti_id>/', views.notification2, name='notification2'),
+    
 
     path('create_employee', views.create_employee, name='create_employee'),
     path('employee_list', views.employee_list, name='employee_list'),

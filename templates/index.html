@@ -80,7 +80,7 @@
       {% endfor %}
 
       <div class="readmore flex">
-        <a href="#" class="moretext">Read All News</a
+        <a href="{% url 'allnews' %}" class="moretext">Read All News</a
         ><img class="arrow" src="{% static 'assets/downarrow.svg' %}" alt="" />
       </div>
     </div>
@@ -106,7 +106,7 @@
       {% endfor %}
 
       <div class="readmore flex">
-        <a href="#">View All Events</a
+        <a href="{% url 'allevents' %}">View All Events</a
         ><img src="{% static 'assets/rightarrow.svg' %}" alt="" />
       </div>
     </div>
