@@ -124,13 +124,19 @@ navbar {
   color: black;
 }
 
+
 .option {
-  width: 250px;
+  width: 300px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px 10px;
   /* position: relative; */
+}
+
+.option div{
+  text-align: left;
+  font-size: 13px;
 }
 
 .option .sec-container{

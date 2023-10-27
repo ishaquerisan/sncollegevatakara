@@ -27,28 +27,34 @@
           <div class="group flex">
             <div class="flex"><div class="nav">Academics</div></div>
             <div class="dropdown">
-              <div class="option">
-                <a href="{% url 'courses' %}">Courses and Syllabus</a>
+              <a href="{% url 'courses' %}" class="option">
+                <div>Courses and Syllabus</div>
                 <img src="{% static 'assets/more.png'%}" alt="" />
-              </div>
-              <a href="{% url 'faculty' dept='maths' %}" class="option">
+              </a>
+              <div class="option">
                 <div>Faculty</div>
                 <img src="{% static 'assets/more.png' %}" alt="" />
                 <div class="sec-dropdown">
-                  <div class="option">
+                  <a
+                    href="{% url 'faculty' dept='MATHEMATICS' %}"
+                    class="option"
+                  >
+                    <div>Mathematics Department</div>
+                    <img src="{% static 'assets/more.png'%}" alt="" />
+                  </a>
+                  <a href="{% url 'faculty' dept='PHYSICS' %}" class="option">
                     <div>Courses and Syllabus</div>
                     <img src="{% static 'assets/more.png'%}" alt="" />
-                  </div>
-                  <div class="option">
+                  </a>
+                  <a
+                    href="{% url 'faculty' dept='MATHEMATICS' %}"
+                    class="option"
+                  >
                     <div>Courses and Syllabus</div>
                     <img src="{% static 'assets/more.png'%}" alt="" />
-                  </div>
-                  <div class="option">
-                    <div>Courses and Syllabus</div>
-                    <img src="{% static 'assets/more.png'%}" alt="" />
-                  </div>
+                  </a>
                 </div>
-              </a>
+              </div>
 
               <!-- #### -->
             </div>
@@ -62,14 +68,14 @@
                 <div>National Service Scheme</div>
                 <img src="{% static 'assets/more.png' %}" alt="" />
               </a>
-              <div class="option">
-                <a href="{% url 'bhoomi' %}">BHOO MITHRA SENA CLUB</a>
+              <a href="{% url 'bhoomi' %}" class="option">
+                <div>BHOO MITHRA SENA CLUB</div>
                 <img src="{% static 'assets/more.png' %}" alt="" />
-              </div>
-              <div class="option">
-                <a href="{% url 'fitness' %}">COLLEGE FITNESS PROGRAMME</a>
+              </a>
+              <a href="{% url 'fitness' %}" class="option">
+                <div>COLLEGE FITNESS PROGRAMME</div>
                 <img src="{% static 'assets/more.png' %}" alt="" />
-              </div>
+              </a>
 
               <!-- #### -->
             </div>
@@ -80,18 +86,18 @@
               <!-- <img src="{% static 'assets/downarrow.svg" alt=""> -->
             </div>
             <div class="dropdown">
-              <div class="option">
-                <a href="">Application Forms</a>
+              <a href="{% url 'placement' %}" class="option">
+                <div>Application Forms</div>
                 <img src="{% static 'assets/more.png' %}" alt="" />
-              </div>
-              <div class="option">
-                <a href="">Scholarship Details</a>
+              </a>
+              <a href="{% url 'scholarship' %}" class="option">
+                <div>Scholarship Details</div>
                 <img src="{% static 'assets/more.png' %}" alt="" />
-              </div>
-              <div class="option">
-                <a href="">Placement & Career guidance</a>
+              </a>
+              <a href="{% url 'placement' %}" class="option">
+                <div>Placement & Career guidance</div>
                 <img src="{% static 'assets/more.png' %}" alt="" />
-              </div>
+              </a>
 
               <!-- #### -->
             </div>

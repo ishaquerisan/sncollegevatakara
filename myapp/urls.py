@@ -7,9 +7,12 @@ urlpatterns = [
     path('news/<int:nw_id>/', views.news, name='news'),
     path('events/<int:ev_id>/', views.events, name='events'),
     path('faculty/<str:dept>/', views.faculty, name='faculty'),
-    path('NSS', views.club, name='club'),
+    path('club', views.club, name='club'),
     path('fitness', views.fitness, name='fitness'),
     path('BHOOMITHRA_SENA_CLUB', views.bhoomi, name='bhoomi'),
+    path('courses', views.courses, name='courses'),
+    path('placement', views.placement, name='placement'),
+    path('scholarship', views.scholarship, name='scholarship'),
     path('courses', views.courses, name='courses'),
     path('notification', views.notification, name='notification'),
     path('notification2/<int:noti_id>/', views.notification2, name='notification2'),
@@ -33,5 +36,9 @@ urlpatterns = [
     path('update_notification/<int:notification_id>/', views.update_notification, name='update_notification'),
     path('delete_notification/<int:notification_id>/', views.delete_notification, name='delete_notification'),
     path('list_notifications/', views.list_notifications, name='list_notifications'),
+
+    path('login/', views.login, name='login'),
+    path('logout/', views.logout, name='logout'),
+  
 
 ]

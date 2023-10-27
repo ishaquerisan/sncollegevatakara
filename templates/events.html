@@ -7,7 +7,8 @@
     <div class="flex">
       <div class="date out">
         <div class="day">{{evt.date.day}}</div>
-        <div class="month">{{ evt.date.month }}/{{evt.date.year}}</div>
+        <div class="month">{{ evt.date|date:"M" }}</div>
+        <div class="year">{{evt.date.year}}</div>
       </div>
       <div class="bold-head">{{ evt.title }}</div>
     </div>
@@ -20,56 +21,23 @@
   <div class="part">
     <div class="heading">Upcoming Events</div>
     <div class="event-group ev">
-      <div class="event-box">
+      {% for event in events %}
+      <a href="{% url 'events' event.id %}" class="event-box">
         <div class="date line">
-          <div class="day">14</div>
-          <div class="month">NOV</div>
+          <div class="day">{{event.date.day}}</div>
+          <div class="month">{{ event.date|date:"M" }}</div>
+          <div class="year">{{event.date.year}}</div>
         </div>
         <div class="info">
-          <div class="headingSmall">
-            Multi-Disciplinary International Webinar Series
-          </div>
+          <div class="headingSmall">{{ event.title }}</div>
           <div class="otherinfo">
-            <div>09:30</div>
-            <div>
-              R Sankar Memorial SNDP Yogam Arts & Science college, Koyilandy
-            </div>
+            <div>{{ event.time }}</div>
+            <div>{{ event.venue }}</div>
           </div>
         </div>
-      </div>
-      <div class="event-box">
-        <div class="date line">
-          <div class="day">14</div>
-          <div class="month">NOV</div>
-        </div>
-        <div class="info">
-          <div class="headingSmall">
-            Multi-Disciplinary International Webinar Series
-          </div>
-          <div class="otherinfo">
-            <div>09:30</div>
-            <div>
-              R Sankar Memorial SNDP Yogam Arts & Science college, Koyilandy
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="event-box">
-        <div class="date line">
-          <div class="day">14</div>
-          <div class="month">NOV</div>
-        </div>
-        <div class="info">
-          <div class="headingSmall">
-            Multi-Disciplinary International Webinar Series
-          </div>
-          <div class="otherinfo">
-            <div>09:30</div>
-            <div>
-              R Sankar Memorial SNDP Yogam Arts & Science college, Koyilandy
-            </div>
-          </div>
-        </div>
+      </a>
+      {% endfor %}
+      
       </div>
     </div>
   </div>
