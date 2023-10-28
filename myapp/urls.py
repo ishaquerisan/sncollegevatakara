@@ -18,6 +18,7 @@ urlpatterns = [
     path('courses', views.courses, name='courses'),
     path('placement', views.placement, name='placement'),
     path('scholarship', views.scholarship, name='scholarship'),
+    path('applicatonforms', views.applicatonforms, name='applicatonforms'),
     path('courses', views.courses, name='courses'),
     
 

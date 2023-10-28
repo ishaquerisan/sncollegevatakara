@@ -104,7 +104,7 @@ navbar {
 .option:hover .sec-dropdown{
   visibility: visible;
   opacity: 1;
-  bottom:-100%;
+  top:50%;
   border-top-left-radius: 0;
 }
 /* .option:hover:has(.sec-dropdown){
@@ -356,8 +356,10 @@ navbar {
 } */
 
 .news-box {
-  display: grid;
-  place-content: center;
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  justify-content: space-between;
   border: 2px solid rgb(73, 73, 73);
   padding: 20px;
   border-radius: 20px;

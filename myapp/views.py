@@ -49,6 +49,9 @@ def bhoomi(request):
 def courses(request):
     # employees = Employee.objects.all()
     return render(request, 'courses.html')
+def applicatonforms(request):
+    # employees = Employee.objects.all()
+    return render(request, 'applicatonforms.html')
 def placement(request):
     # employees = Employee.objects.all()
     return render(request, 'placement.html')

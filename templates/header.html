@@ -35,10 +35,7 @@
                 <div>Faculty</div>
                 <img src="{% static 'assets/more.png' %}" alt="" />
                 <div class="sec-dropdown">
-                  <a
-                    href="{% url 'faculty' dept='MATHEPHYSICSMATICS' %}"
-                    class="option"
-                  >
+                  <a href="{% url 'faculty' dept='PHYSICS' %}" class="option">
                     <div>DEPARTMENT OF PHYSICS</div>
                     <img src="{% static 'assets/more.png'%}" alt="" />
                   </a>
@@ -126,7 +123,7 @@
               <!-- <img src="{% static 'assets/downarrow.svg" alt=""> -->
             </div>
             <div class="dropdown">
-              <a href="{% url 'placement' %}" class="option">
+              <a href="{% url 'applicatonforms' %}" class="option">
                 <div>Application Forms</div>
                 <img src="{% static 'assets/more.png' %}" alt="" />
               </a>
