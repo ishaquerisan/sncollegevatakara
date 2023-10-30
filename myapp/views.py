@@ -23,7 +23,7 @@ def news(request,nw_id):
     return render(request, 'news.html',{'news': nw,'newses': nws})
 def allnews(request):
     nws = News.objects.all().order_by('-id')
-    return render(request, 'allnews.html',{'newses': nws})
+    return render(request, 'morenews.html',{'newses': nws})
 
 def events(request,ev_id):
     ev = get_object_or_404(Event, pk=ev_id)
@@ -36,7 +36,9 @@ def allevents(request):
 
 def faculty(request,dept):
     employees = Employee.objects.filter(department=dept)
+    # print(type(employees[0].qualification))
     return render(request, 'faculty.html',{'employees':employees,'depart':dept})
+
 def club(request):
     # employees = Employee.objects.all()
     return render(request, 'nss.html')
@@ -49,6 +51,9 @@ def bhoomi(request):
 def courses(request):
     # employees = Employee.objects.all()
     return render(request, 'courses.html')
+def about(request):
+    # employees = Employee.objects.all()
+    return render(request, 'about.html')
 def applicatonforms(request):
     # employees = Employee.objects.all()
     return render(request, 'applicatonforms.html')

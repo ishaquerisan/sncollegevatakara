@@ -8,7 +8,9 @@
       {% for article in newses %}
       <a href="{% url 'news' article.id %}" class="news-box">
         <div class="text">{{ article.title }}</div>
-        <div class="date-box">Sat, {{ article.date }}</div>
+        <div class="date-box">
+          {{ article.date|date:"D" }}, {{ article.date }}
+        </div>
       </a>
       {% endfor %}
     </div>

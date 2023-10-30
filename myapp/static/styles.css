@@ -9,7 +9,6 @@
   font-family: "Poppins";
 }
 
-
 :root {
   --primary: #0f3c71;
   --primary-light: #1b5292;
@@ -29,7 +28,6 @@
   position: fixed;
   z-index: 999;
   background-color: red;
-
 }
 
 navbar {
@@ -70,7 +68,8 @@ navbar {
   color: var(--primary);
 }
 
-.dropdown, .sec-dropdown{
+.dropdown,
+.sec-dropdown {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -85,26 +84,23 @@ navbar {
   border-radius: 10px;
   visibility: hidden;
   opacity: 0;
-  transition: all 0.1s ease-out;
+  transition: all 0.2s ease-out;
   /* overflow: hidden; */
   translate: 50%;
 }
-.dropdown{
-  top: 22px;
+.dropdown {
+  top: 25px;
   right: 50%;
-
 }
 
-.sec-dropdown{
-  left:50%;
-  bottom:-98%
+.sec-dropdown {
+  left: 50%;
+  top: 50%;
 }
 
-
-.option:hover .sec-dropdown{
+.option:hover .sec-dropdown {
   visibility: visible;
   opacity: 1;
-  top:50%;
   border-top-left-radius: 0;
 }
 /* .option:hover:has(.sec-dropdown){
@@ -114,7 +110,6 @@ navbar {
 .group:hover .dropdown {
   visibility: visible;
   opacity: 1;
-  top: 25px;
 }
 
 .dropdown a {
@@ -123,7 +118,6 @@ navbar {
   font-weight: 500;
   color: black;
 }
-
 
 .option {
   width: 300px;
@@ -134,23 +128,22 @@ navbar {
   /* position: relative; */
 }
 
-.option div{
+.option div {
   text-align: left;
   font-size: 13px;
 }
 
-.option .sec-container{
+.option .sec-container {
   background-color: red;
 }
 
-.option:first-child{
+.option:first-child {
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
 }
-.option:last-child{
+.option:last-child {
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
-
 }
 
 .option img {
@@ -182,6 +175,7 @@ navbar {
 
 .container {
   padding: 0 var(--conPad);
+  /* height: max-content; */
 }
 
 .hero {
@@ -202,7 +196,8 @@ navbar {
 }
 
 /* Next & previous buttons */
-.prev, .next {
+.prev,
+.next {
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -224,8 +219,9 @@ navbar {
 }
 
 /* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 .fade {
   animation-name: fade;
@@ -233,8 +229,12 @@ navbar {
 }
 
 @keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
 }
 /* m ----------------------------------------------------------------------------------------------*/
 .detailsbox {
@@ -363,13 +363,22 @@ navbar {
   border: 2px solid rgb(73, 73, 73);
   padding: 20px;
   border-radius: 20px;
-  height: 150px;
+  min-height: 150px;
   text-decoration: none;
   color: black;
-  width:600px
+  max-width: 600px;
+}
+
+.w-600{
+  width: 600px;
 }
 
 
+
+.news-box .text {
+  text-align: start;
+  vertical-align: top;
+}
 
 .date-box {
   background-color: black;
@@ -403,11 +412,10 @@ navbar {
   align-items: center;
   justify-content: flex-start;
   filter: drop-shadow(0px 0px 2px #e4e4e4);
-  width:600px;
+  width: 600px;
   text-decoration: none;
-  color:black
+  color: black;
 }
-
 
 .date {
   display: flex;
@@ -620,7 +628,7 @@ navbar {
 .sec-container {
   width: 100%;
   background-color: var(--third);
-  height: minmax(max-content, 700px);
+  height: max-content;
   margin: 60px 0;
   border-radius: 30px;
   padding: 20px;
@@ -628,10 +636,25 @@ navbar {
 
 .small-container {
   width: 100%;
-  height: 100%;
   border-radius: 10px;
   background-color: white;
   padding: 20px;
+  height: auto;
+}
+.small-container p {
+  margin-bottom: 2rem;
+  text-align: justify;
+  /* max-width: 80%; */
+}
+
+.small-container ul {
+  margin-left: 20px;
+}
+
+.small-container .head-big {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--primary);
 }
 
 .column-flex {
@@ -651,6 +674,7 @@ navbar {
   justify-content: space-between;
   font-weight: 500;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .fill {
@@ -673,7 +697,7 @@ navbar {
 
 .flex-just-start {
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: flex-start;
   gap: 30px;
 }
@@ -681,6 +705,8 @@ navbar {
 .list {
   margin-bottom: 10px;
   cursor: pointer;
+  text-decoration: none;
+  color: black;
 }
 .list1 {
   margin-bottom: 30px;
@@ -749,4 +775,30 @@ navbar {
 .imgbox img {
   width: 400px;
   border-radius: 10px;
+}
+
+.imgcon {
+  width: 100%;
+  border-radius: 10px;
+  height: 300px;
+  overflow: hidden;
+  display: flex;
+  margin-bottom: 10px;
+}
+.news-img {
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+  transform: scale(1.1);
+  transition: transform 0.5s;
+}
+
+.imgcon:hover .news-img {
+  transform: scale(1);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 20px;
 }

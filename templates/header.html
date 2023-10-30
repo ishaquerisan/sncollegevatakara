@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    {% load static %}
+    {% load static %} {% comment %}
     <script src="{% static 'script.js' %}" defer></script>
+    {% endcomment %}
     <title>Sree Narayana College</title>
     <link rel="stylesheet" href="{% static 'styles.css'%}" />
   </head>
@@ -21,7 +22,7 @@
           </div>
           <div class="group flex">
             <div class="flex">
-              <a href="{% url 'club' %}" class="nav">About Us</a>
+              <a href="{% url 'about' %}" class="nav">About Us</a>
             </div>
           </div>
           <div class="group flex">
@@ -35,6 +36,13 @@
                 <div>Faculty</div>
                 <img src="{% static 'assets/more.png' %}" alt="" />
                 <div class="sec-dropdown">
+                  <a
+                    href="{% url 'faculty' dept='COMMERCE & MANAGEMENT STUDIES' %}"
+                    class="option"
+                  >
+                    <div>DEPARTMENT OF COMMERCE & MANAGEMENT STUDIES</div>
+                    <img src="{% static 'assets/more.png'%}" alt="" />
+                  </a>
                   <a href="{% url 'faculty' dept='PHYSICS' %}" class="option">
                     <div>DEPARTMENT OF PHYSICS</div>
                     <img src="{% static 'assets/more.png'%}" alt="" />

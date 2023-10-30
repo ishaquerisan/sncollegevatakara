@@ -15,7 +15,7 @@
     <div class="heading">Recent News & Updates</div>
     <div class="event-group ev">
       {% for article in newses %}
-      <a href="{% url 'news' article.id %}" class="news-box">
+      <a href="{% url 'news' article.id %}" class="news-box w-600">
         <div class="text">{{ article.title }}</div>
         <div class="date-box">Sat, {{ article.date }}</div>
       </a>

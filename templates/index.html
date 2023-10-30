@@ -59,7 +59,8 @@
         </div>
       </div>
       <div class="image">
-        <img src="assets/img2.png' %}" alt="" />
+        <img src="assets/img2.png' %}" al{{ article.date|date:"D" }}, {{
+        article.date }}t="" />
         <div class="name">Sri.P.M. Raveendran</div>
       </div>
     </div>
@@ -71,11 +72,9 @@
     <div class="heading">Recent News & Updates</div>
     <div class="event-group ev">
       {% for article in news %}
-      <a href="{% url 'news' article.id %}" class="news-box">
+      <a href="{% url 'news' article.id %}" class="news-box w-600">
         <div class="text">{{ article.title }}</div>
-        <div class="date-box">
-          {{ article.date|date:"D" }}, {{ article.date }}
-        </div>
+        <div class="date-box">{{article.date}}</div>
       </a>
       {% endfor %}
 

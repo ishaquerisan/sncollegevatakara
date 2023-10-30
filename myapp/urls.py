@@ -14,6 +14,7 @@ urlpatterns = [
     
     path('club', views.club, name='club'),
     path('fitness', views.fitness, name='fitness'),
+    path('about', views.about, name='about'),
     path('BHOOMITHRA_SENA_CLUB', views.bhoomi, name='bhoomi'),
     path('courses', views.courses, name='courses'),
     path('placement', views.placement, name='placement'),
