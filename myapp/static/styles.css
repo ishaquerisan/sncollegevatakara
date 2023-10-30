@@ -256,16 +256,21 @@ navbar {
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: start;
   text-align: center;
+  max-width: 1000px;
 }
+
+
 .text .head {
   font-size: 20px;
   font-weight: 500;
+  margin-bottom: 20px;
 }
 .text .mssg {
-  margin: 10px 0;
+  margin-bottom: 50px;
   font-size: 14px;
+  text-align: justify;
 }
 /* .text .readmore a{
     color:var(--primary)
@@ -470,7 +475,7 @@ navbar {
 .otherinfo {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: start;
   margin-top: 30px;
 }
 
@@ -596,7 +601,8 @@ navbar {
 }
 
 .img-big {
-  width: 80%;
+  /* width: 80%; */
+  height: 400px;
   border-radius: 20px;
 }
 
@@ -801,4 +807,36 @@ navbar {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 20px;
+}
+
+pre {
+  overflow-x: auto;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+  text-align: justify;
+}
+
+.det{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  gap:10px
+}
+
+.det .des{
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.det .nam{
+  font-weight: 600;
+  font-size: 1.1em;
+}
+
+.det .qual{
+  color:#505050;
 }

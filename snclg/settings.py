@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-$-&18r!e&47enpm+)v2a-5&5#@tcnxmhv*amxh#0ii*c_o%*nx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','.vercel.app']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -75,14 +75,13 @@ WSGI_APPLICATION = 'snclg.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-   'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'URL': os.getenv('POSTGRES_URL'),
-        'NAME': os.getenv('PGNAME'),
-        'USER': os.getenv('PGUSER'),
-        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
-        'HOST': os.getenv('PGHOST'),
-        'PORT': os.getenv('PGPORT'),
+   'default': {  
+        'ENGINE': 'django.db.backends.mysql',  
+        'NAME': 'sncollege',  
+        'USER':'root',  
+        'PASSWORD':'',  
+        'HOST':'localhost',  
+        'PORT':'3306'  
     }
 }
 

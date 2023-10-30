@@ -21,7 +21,8 @@ urlpatterns = [
     path('scholarship', views.scholarship, name='scholarship'),
     path('applicatonforms', views.applicatonforms, name='applicatonforms'),
     path('courses', views.courses, name='courses'),
-    
+    path('manager', views.manager, name='manager'),
+    path('principal', views.principal, name="principal"),
 
     path('create_employee', views.create_employee, name='create_employee'),
     path('employee_list', views.employee_list, name='employee_list'),

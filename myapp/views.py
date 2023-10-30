@@ -72,6 +72,11 @@ def notification2(request ,noti_id):
     return render(request, 'notifications.html', {'notification': notification})
     # return render(request, 'notifications.html',{'notification':noti2})
 
+def manager(request):
+    return render(request, "manager.html")
+def principal(request):
+    return render(request, "principal.html")
+
 #Employee
 def create_employee(request):
     if 'username' in request.session:
