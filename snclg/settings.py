@@ -75,13 +75,14 @@ WSGI_APPLICATION = 'snclg.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-   'default': {  
-        'ENGINE': 'django.db.backends.mysql',  
-        'NAME': 'sncollege',  
-        'USER':'root',  
-        'PASSWORD':'',  
-        'HOST':'localhost',  
-        'PORT':'3306'  
+   'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'URL': os.getenv('POSTGRES_URL'),
+        'NAME': os.getenv('PGNAME'),
+        'USER': os.getenv('PGUSER'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
+        'HOST': os.getenv('PGHOST'),
+        'PORT': os.getenv('PGPORT'),
     }
 }
 
