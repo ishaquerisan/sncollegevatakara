@@ -78,12 +78,12 @@
         >
 
         <label for="photos">Photo:</label>
-        <input type="file" id="photos" name="photos" accept="image/*" />
-        {% for image in article.images.all %}
+        <input type="file" id="photo" name="photos" accept="image/*" />
+        {% comment %} {% for image in article.images.all %}
         <div>
           <img src="{{ image.image.url }}" alt="Image" width="100" />
         </div>
-        {% endfor %}
+        {% endfor %} {% endcomment %}
 
         <button type="submit">Update</button>
       </form>
