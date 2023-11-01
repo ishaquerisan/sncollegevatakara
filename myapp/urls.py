@@ -11,6 +11,7 @@ urlpatterns = [
     path('faculty/<str:dept>/', views.faculty, name='faculty'),
     path('notification', views.notification, name='notification'),
     path('notification2/<int:noti_id>/', views.notification2, name='notification2'),
+    path('notificationfilter/<str:upg>/', views.notificationfilter, name='notificationfilter'),
     
     path('club', views.club, name='club'),
     path('fitness', views.fitness, name='fitness'),

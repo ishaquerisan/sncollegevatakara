@@ -65,7 +65,10 @@ def scholarship(request):
     return render(request, 'scholarship.html')
 def notification(request):
     noti = Notification.objects.all().order_by('-id')
-    return render(request, 'notification2.html',{'notifications':noti})
+    return render(request, 'notification2.html',{'notifications':noti,'cat':"all"})
+def notificationfilter(request,upg):
+    noti = Notification.objects.filter(category=upg)
+    return render(request, 'notification2.html',{'notifications':noti,'cat':upg})
 def notification2(request ,noti_id):
     notification = get_object_or_404(Notification, pk=noti_id)
 

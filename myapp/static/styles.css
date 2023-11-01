@@ -840,3 +840,38 @@ pre {
 .det .qual{
   color:#505050;
 }
+
+.filter{
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  margin-bottom: 20px;
+}
+
+.filterCon{
+  height: 25px;
+  width: fit-content;
+  overflow: hidden;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap:1px
+}
+
+.filterCon a{
+  text-decoration: none;
+  background-color: white;
+  color:var(--primary);
+  padding: 10px 10px;
+  transition: all .1s linear;
+}
+
+.filterCon a:hover{
+  background-color: var(--primary-light);
+  color:white;
+}
+
+.filterCon .selected{
+  background-color: var(--primary);
+  color:white
+}
