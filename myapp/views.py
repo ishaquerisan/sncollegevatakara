@@ -51,6 +51,9 @@ def bhoomi(request):
 def courses(request):
     # employees = Employee.objects.all()
     return render(request, 'courses.html')
+def iqac(request):
+    # employees = Employee.objects.all()
+    return render(request, 'iqac.html')
 def about(request):
     # employees = Employee.objects.all()
     return render(request, 'about.html')

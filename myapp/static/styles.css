@@ -875,3 +875,24 @@ pre {
   background-color: var(--primary);
   color:white
 }
+
+
+@media (max-width:480px){
+
+  .navcon{
+    width: 100%;
+  }
+
+  .l{
+    display: none;
+  }
+
+  .container{
+    padding: 20px;
+    width: 100%;
+  }
+
+  .ncon{
+    flex-direction: column;
+  }
+}

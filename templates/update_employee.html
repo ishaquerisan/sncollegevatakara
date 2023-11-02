@@ -66,7 +66,7 @@
 
             <label for="position">Position:</label>
             <select id="position" name="position">
-                <option value="Hod" {% if employee.position == "Hod" %}selected{% endif %}>HOD</option>
+                <option value="Head Of Department" {% if employee.position == "Head Of Department" %}selected{% endif %}>Head Of Department</option>
                 <option value="Professor" {% if employee.position == "Professor" %}selected{% endif %}>Professor</option>
                 <option value="Assistant Professor" {% if employee.position == "Assistant Professor" %}selected{% endif %}>Assistant Professor</option>
                 <option value="Visiting Faculty" {% if employee.position == "Visiting Faculty" %}selected{% endif %}>Visiting Faculty</option>

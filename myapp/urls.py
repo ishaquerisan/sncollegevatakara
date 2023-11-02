@@ -22,6 +22,7 @@ urlpatterns = [
     path('scholarship', views.scholarship, name='scholarship'),
     path('applicatonforms', views.applicatonforms, name='applicatonforms'),
     path('courses', views.courses, name='courses'),
+    path('iqac', views.iqac, name='iqac'),
     path('manager', views.manager, name='manager'),
     path('principal', views.principal, name="principal"),
 
