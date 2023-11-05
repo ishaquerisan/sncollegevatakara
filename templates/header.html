@@ -14,8 +14,16 @@
     <div class="navcon">
       <navbar class="flex n">
         <img src="{% static 'assets/logo.png' %}" class="logo" alt="" />
-        <img src="{% static 'assets/bm.svg' %}" alt="" class="bm" />
+        <img
+          src="{% static 'assets/bm.svg' %}"
+          alt=""
+          class="bm"
+          onclick="opennav()"
+        />
         <div class="l">
+          <div class="close" onclick="closenav()">
+            <img src="{% static 'assets/close.svg' %}" alt="" />
+          </div>
           <div class="group flex">
             <div class="flex">
               <a href="{% url 'index' %}" class="nav">Home</a>
@@ -27,16 +35,18 @@
             </div>
           </div>
           <div class="group flex">
-            <div class="flex"><div class="nav">Academics</div></div>
-            <div class="dropdown">
+            <div class="flex" onclick="togglelist(aca,'drop1')">
+              <div class="nav">Academics</div>
+            </div>
+            <div class="dropdown" id="aca">
               <a href="{% url 'courses' %}" class="option">
                 <div>Courses and Syllabus</div>
                 <img src="{% static 'assets/more.png'%}" alt="" />
               </a>
-              <div class="option">
+              <div class="option" onclick="togglelist(fac,'drop2')">
                 <div>Faculty</div>
                 <img src="{% static 'assets/more.png' %}" alt="" />
-                <div class="sec-dropdown">
+                <div class="sec-dropdown" id="fac">
                   <a
                     href="{% url 'faculty' dept='COMMERCE & MANAGEMENT STUDIES' %}"
                     class="option"
@@ -106,10 +116,10 @@
             </div>
           </div>
           <div class="group flex">
-            <div class="flex">
-              <a href="" class="nav">Clubs & Associations</a>
+            <div class="flex" onclick="togglelist(club,'drop1')">
+              <div class="nav">Clubs & Associations</div>
             </div>
-            <div class="dropdown">
+            <div class="dropdown" id="club">
               <a href="{% url 'club' %}" class="option">
                 <div>National Service Scheme</div>
                 <img src="{% static 'assets/more.png' %}" alt="" />
@@ -127,11 +137,11 @@
             </div>
           </div>
           <div class="group flex">
-            <div class="flex">
+            <div class="flex" onclick="togglelist(stcr,'drop1')">
               <div class="nav">Student Corner</div>
               <!-- <img src="{% static 'assets/downarrow.svg" alt=""> -->
             </div>
-            <div class="dropdown">
+            <div class="dropdown" id="stcr">
               <a href="{% url 'applicatonforms' %}" class="option">
                 <div>Application Forms</div>
                 <img src="{% static 'assets/more.png' %}" alt="" />

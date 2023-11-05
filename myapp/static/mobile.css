@@ -1,0 +1,151 @@
+@media (max-width: 1000px) {
+  body {
+    margin-top: 70px;
+  }
+  navbar {
+    padding: 0 var(--conPadSmall);
+  }
+  .bm {
+    display: block;
+  }
+  .l {
+    flex-direction: column;
+    position: fixed;
+    background-color: var(--primary);
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 0;
+    max-width: 500px;
+    justify-content: flex-start;
+    overflow-y: auto;
+    transition: width 0.2s ease-out;
+  }
+  .open {
+    width: 80vw;
+  }
+  .group {
+    width: 100%;
+    border: 1px solid var(--primary-light);
+    margin: 0;
+    padding: 10px;
+    height: max-content;
+    justify-content: flex-start;
+  }
+
+  .group .flex {
+    padding: 10px 0;
+  }
+  .group .dropdown.drop1 {
+    height: 100%;
+  }
+  .group .dropdown {
+    display: block;
+    position: initial;
+    visibility: visible;
+    opacity: 1;
+    translate: 0;
+    height: 0;
+    overflow: hidden;
+    border: none;
+    transition: height 0.2s ease-in-out;
+    width: 100%;
+  }
+
+  .option {
+    flex-direction: column;
+    align-items: flex-start;
+    text-wrap: wrap;
+    gap: 10px;
+    /* overflow: hidden; */
+  }
+
+  .option img {
+    display: none;
+  }
+  /* .option:hover:has(.sec-dropdown) {
+    height: 100%;
+    overflow: auto;
+  } */
+
+  .option:has(.drop2) {
+    background-color: rgb(242, 242, 242);
+  }
+
+  .option .sec-dropdown {
+    position: initial;
+    opacity: 1;
+    visibility: visible;
+    translate: 0;
+    height: 0;
+    border: none;
+    width: 100%;
+    transition: height 0.2s ease-in-out;
+    display: none;
+  }
+
+  .option:hover .sec-dropdown {
+    border-radius: 10px;
+  }
+  .option .drop2 {
+    border-radius: 10px;
+    height: 490px;
+  }
+
+  .group .dropdown .option {
+    width: 100%;
+  }
+
+  .group:hover .nav {
+    color: var(--sec);
+  }
+
+  .nav {
+    font-size: 1rem;
+    color: white;
+  }
+
+  .detailsbox {
+    flex-direction: column;
+    /* align-items: center; */
+  }
+  .detailsbox .image img {
+    height: 30vh;
+  }
+
+  .flexnum {
+    order: -1;
+  }
+  .container {
+    padding: 20px;
+    width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  .navcon {
+    width: 100%;
+  }
+
+  .ncon {
+    flex-direction: column;
+  }
+
+  .part {
+    max-width: 100%;
+    width: 100%;
+    align-items: center;
+  }
+
+  .part .heading {
+    font-size: 1.2rem;
+    align-self: flex-start;
+  }
+
+  .footer {
+    padding-left: var(--conPadSmall);
+  }
+
+  .footcon {
+    flex-wrap: wrap;
+  }
+}

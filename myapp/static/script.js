@@ -1,43 +1,34 @@
-const SLIDE_DELAY = 3000; // ms
+const bm = document.querySelector(".bm");
+const nav = document.querySelector(".l");
+const cl = document.querySelector(".close");
 
-let slideIndex = 1;
-showSlides(slideIndex);
-
-// Next/previous controls
-function plusSlides(n) {
-  showSlides((slideIndex += n));
-}
-
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides((slideIndex = n));
-}
-
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  if (n > slides.length) {
-    slideIndex = 1;
-  }
-  if (n < 1) {
-    slideIndex = slides.length;
-  }
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  slides[slideIndex - 1].style.display = "block";
-}
-
-setInterval(() => {
-  plusSlides(1);
-}, SLIDE_DELAY);
-
-// Scroll
+// Scroll - navbar shadow
 const navcon = document.querySelector(".navcon");
 window.addEventListener("scroll", () => {
+  //remove nav
   if (window.scrollY == 0) {
     navcon.classList.remove("shadow");
   } else {
     navcon.classList.add("shadow");
   }
 });
+
+// navbar animations
+
+function opennav() {
+  nav.classList.add("open");
+  cl.style.display = "flex";
+}
+
+function closenav() {
+  nav.classList.remove("open");
+  cl.style.display = "none";
+}
+
+function togglelist(element, cls) {
+  element.classList.toggle(cls);
+  setInterval(() => {
+    if (element.classList.contains(cls)) element.style.display = "flex";
+    else element.style.display = "none";
+  });
+}
