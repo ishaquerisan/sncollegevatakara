@@ -26,9 +26,11 @@ function closenav() {
 }
 
 function togglelist(element, cls) {
-  element.classList.toggle(cls);
-  setInterval(() => {
-    if (element.classList.contains(cls)) element.style.display = "flex";
-    else element.style.display = "none";
-  });
+  if (!element.classList.contains(cls)) element.style.display = "flex";
+  setTimeout(() => {
+    element.classList.toggle(cls);
+  }, 10);
+  setTimeout(() => {
+    if (!element.classList.contains(cls)) element.style.display = "none";
+  }, 210);
 }
