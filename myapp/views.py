@@ -66,6 +66,9 @@ def placement(request):
 def scholarship(request):
     # employees = Employee.objects.all()
     return render(request, 'scholarship.html')
+def universityinfo(request):
+    # employees = Employee.objects.all()
+    return render(request, 'universityinfo.html')
 def notification(request):
     noti = Notification.objects.all().order_by('-id')
     return render(request, 'notification2.html',{'notifications':noti,'cat':"all"})
