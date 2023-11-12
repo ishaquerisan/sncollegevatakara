@@ -1,71 +1,25 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>Update Employee</title>
-    <style>
-        /* CSS for styling the form */
-        .form-container {
-            max-width: 400px;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        label {
-            display: block;
-            margin-top: 10px;
-        }
-
-        input[type="text"],
-        select {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        input[type="file"] {
-            width: 100%;
-            margin-top: 5px;
-            margin-bottom: 10px;
-        }
-
-        textarea {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        button {
-            background-color: #4caf50;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'admin.css'%}" />
+    <link rel="stylesheet" href="{% static 'styles.css'%}" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
 </head>
 <body>
-    <div class="form-container">
+    <body class="edit-body">
+        <div class="edit-formcon">
         <h2>Update Employee</h2>
         <form id="employeeForm" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <label for="name">Name:</label>
-            <input type="text" id="name" name="name" value="{{ employee.name }}" required />
+            <input class="inp" type="text" id="name" name="name" value="{{ employee.name }}" required />
 
             <label for="position">Position:</label>
-            <select id="position" name="position">
+            <select class="inp" id="position" name="position">
                 <option value="Head Of Department" {% if employee.position == "Head Of Department" %}selected{% endif %}>Head Of Department</option>
                 <option value="Professor" {% if employee.position == "Professor" %}selected{% endif %}>Professor</option>
                 <option value="Assistant Professor" {% if employee.position == "Assistant Professor" %}selected{% endif %}>Assistant Professor</option>
@@ -73,7 +27,7 @@
                 <option value="Office Staff" {% if employee.position == "Office Staff" %}selected{% endif %}>Office Staff</option>
             </select>
             <label for="department">Department:</label>
-<select id="department" name="department">
+<select class="inp" id="department" name="department">
     <option value="COMMERCE & MANAGEMENT STUDIES" {% if employee.department == "COMMERCE & MANAGEMENT STUDIES" %}selected{% endif %}>COMMERCE & MANAGEMENT STUDIES</option>
     <option value="PHYSICS" {% if employee.department == "PHYSICS" %}selected{% endif %}>PHYSICS</option>
     <option value="CHEMISTRY" {% if employee.department == "CHEMISTRY" %}selected{% endif %}>CHEMISTRY</option>
@@ -89,15 +43,17 @@
 
             
             <label for="photo">Photo:</label>
-            <input type="file" id="photo" name="photo" accept="image/*" />
+            <img class="imgpreview" src="{{ employee.photo.url }}" alt="{{ employee.name }} Photo" width="100">
+            <input class="inp" type="file" id="photo" name="photo" accept="image/*" />
 
-            <img src="{{ employee.photo.url }}" alt="{{ employee.name }} Photo" width="100">
 
             <label for="qualification">Qualification:</label>
-            <textarea id="qualification" name="qualification" rows="4" required>{{ employee.qualification }}</textarea>
+            <textarea  class="tarea inp" id="qualification" name="qualification" rows="4" required>{{ employee.qualification }}</textarea>
 
             <button type="Submit" value="Submit">Submit</button>
         </form>
+        <a href="{% url 'employee_list' %}" class="btn-edit btn">Back to List</a>
+
     </div>
 </body>
 </html>

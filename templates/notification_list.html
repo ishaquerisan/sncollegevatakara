@@ -1,9 +1,14 @@
 {% extends "admin_header.html" %} {% block content %} {% load static %}
+<div class="admin-container">
+  <div class="admin-title">
     <h2>Notifications List</h2>
-    <a class="btn-add" href="{% url 'create_notification' %}"
-      >New </a>
-
-    <table class="employee-table">
+    <a class="btn-add btn" href="{% url 'create_notification' %}"
+      ><img src="{% static 'assets/new.svg' %}" class="img-small" alt="" />New
+    </a>
+  </div>
+  <div class="table-con">
+    <table>
+      <thead>
         <tr>
           <th>ID</th>
           <th>Category</th>
@@ -12,6 +17,8 @@
           <th>File</th>
           <th class="actions">Actions</th>
         </tr>
+      </thead>
+      <tbody>
         {% for notification in notifications %}
         <tr>
           <td>{{ notification.id }}</td>
@@ -20,22 +27,29 @@
           <td>{{ notification.description }}</td>
           <td>
             {% if notification.file %}<a
-              href="{{ notification.file.url }}" class="btn-add"
+              href="{{ notification.file.url }}"
+              class="btn-add btn"
               target="_blank"
               >View File</a
             >{% else %}N/A{% endif %}
           </td>
-          
+
           <td>
-            <a class="btn-edit" href="{% url 'update_notification' notification.id %}"
+            <a
+              class="btn-edit btn"
+              href="{% url 'update_notification' notification.id %}"
               >Edit</a
             >
-            <a class="btn-delete" href="{% url 'delete_notification' notification.id %}"
+            <a
+              class="btn-delete btn"
+              href="{% url 'delete_notification' notification.id %}"
               >Delete</a
             >
           </td>
         </tr>
         {% endfor %}
-      </table>
-    </div>
-    {% endblock %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

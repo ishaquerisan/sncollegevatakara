@@ -1,68 +1,22 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8" />
     <title>Create Event</title>
-    <style>
-      /* CSS for styling the form */
-      .form-container {
-        max-width: 400px;
-        margin: 0 auto;
-        padding: 20px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-      }
-
-      label {
-        display: block;
-        margin-top: 10px;
-      }
-
-      input[type="text"],
-      select {
-        width: 100%;
-        padding: 10px;
-        margin-top: 5px;
-        margin-bottom: 10px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-      }
-
-      input[type="file"] {
-        width: 100%;
-        margin-top: 5px;
-        margin-bottom: 10px;
-      }
-
-      textarea {
-        width: 100%;
-        padding: 10px;
-        margin-top: 5px;
-        margin-bottom: 10px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-      }
-
-      button {
-        background-color: #4caf50;
-        color: #fff;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-      }
-
-      button:hover {
-        background-color: #45a049;
-      }
-    </style>
+    <link rel="stylesheet" href="{% static 'admin.css'%}" />
+    <link rel="stylesheet" href="{% static 'styles.css'%}" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
-  <body>
-    <div class="form-container">
+  <body class="edit-body">
+    <div class="edit-formcon">
       <h2>Event Edit</h2>
       <form id="employeeForm" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <label for="title">Title:</label>
         <input
+          class="inp"
           type="text"
           id="title"
           name="title"
@@ -72,6 +26,7 @@
 
         <label for="time">Time:</label>
         <input
+          class="inp"
           type="time"
           id="time"
           name="time"
@@ -81,6 +36,7 @@
 
         <label for="date">Date:</label>
         <input
+          class="inp"
           type="date"
           id="date"
           name="date"
@@ -89,12 +45,19 @@
         />
 
         <label for="description">Description:</label>
-        <textarea id="description" name="description" rows="4" required>
+        <textarea
+          class="tarea inp"
+          id="description"
+          name="description"
+          rows="4"
+          required
+        >
 {{ event.description }}</textarea
         >
 
         <label for="venue">Venue:</label>
         <input
+          class="inp"
           type="text"
           id="venue"
           name="venue"
@@ -104,6 +67,7 @@
 
         <label for="url">URL:</label>
         <input
+          class="inp"
           type="url"
           id="url"
           name="url"
@@ -115,28 +79,7 @@
           Update Event
         </button>
       </form>
+      <a href="{% url 'event_list' %}" class="btn-edit btn">Back to List</a>
     </div>
-
-    <script>
-      // JavaScript to handle form submission
-      function submitForm() {
-        const form = document.getElementById("eventForm");
-        const title = form.querySelector("#title").value;
-        const time = form.querySelector("#time").value;
-        const date = form.querySelector("#date").value;
-        const description = form.querySelector("#description").value;
-        const venue = form.querySelector("#venue").value;
-        const url = form.querySelector("#url").value;
-
-        // You can now send this data to the server using fetch or another method.
-        // For this example, we'll just log the form data.
-        console.log("Title:", title);
-        console.log("Time:", time);
-        console.log("Date:", date);
-        console.log("Description:", description);
-        console.log("Venue:", venue);
-        console.log("URL:", url);
-      }
-    </script>
   </body>
 </html>

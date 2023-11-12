@@ -1,10 +1,18 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
     <title>Employee List</title>
+    <link rel="stylesheet" href="{% static 'styles.css'%}" />
+    <link rel="stylesheet" href="{% static 'mobile.css'%}" />
+    <link rel="stylesheet" href="{% static 'admin.css'%}" />
+    <script src="{% static 'script.js' %}" defer></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
       /* CSS for styling the employee list table */
-      .employee-table {
+      /* .employee-table {
         width: 100%;
         border-collapse: collapse;
         margin: 20px auto;
@@ -29,10 +37,10 @@
       .employee-photo {
         max-width: 100px;
         height: auto;
-      }
+      } */
 
       /* CSS for action buttons */
-      .btn-edit,
+      /* .btn-edit,
       .btn-add,
       .btn-delete {
         display: inline-block;
@@ -101,11 +109,11 @@
 
       a:hover {
         text-decoration: underline;
-      }
+      } */
     </style>
   </head>
-  <body>
-    <header>
+  <body class="admin-body">
+    <!-- <header>
       <nav>
         <ul>
           <li><a href="{% url 'employee_list' %}">Employee </a></li>
@@ -118,7 +126,50 @@
           <li><a href="{% url 'logout' %}">logout</a></li>
         </ul>
       </nav>
-    </header>
+    </header> -->
+    <div class="navcon">
+      <navbar class="flex n">
+        <img src="{% static 'assets/logo.png' %}" class="logo" alt="" />
+        <img
+          src="{% static 'assets/bm.svg' %}"
+          alt=""
+          class="bm"
+          onclick="opennav()"
+        />
+        <div class="l">
+          <div class="close" onclick="closenav()">
+            <img src="{% static 'assets/close.svg' %}" alt="" />
+          </div>
+          <div class="group flex">
+            <div class="flex">
+              <a href="{% url 'employee_list' %}" class="nav">Faculty</a>
+            </div>
+          </div>
+          <div class="group flex">
+            <div class="flex">
+              <a href="{% url 'event_list' %}" class="nav">Events</a>
+            </div>
+          </div>
+          <div class="group flex">
+            <div class="flex">
+              <a href="{% url 'list_notifications' %}" class="nav"
+                >Notifications</a
+              >
+            </div>
+          </div>
+          <div class="group flex">
+            <div class="flex">
+              <a href="{% url 'news_list' %}" class="nav">News</a>
+            </div>
+          </div>
+          <div class="group flex">
+            <div class="flex">
+              <a href="{% url 'logout' %}" class="nav">Logout</a>
+            </div>
+          </div>
+        </div>
+      </navbar>
+    </div>
     {% block content %}{% endblock %}
   </body>
 </html>
