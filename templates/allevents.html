@@ -5,68 +5,23 @@
 
 <div class="container">
   <div class="sec-container grid">
-    <a href="#" class="news-box">
-      <div class="imgcon">
-        <img src="assets/img.jpg" alt="" class="news-img" />
+    {% for event in events %}
+    <a href="{% url 'events' event.id %}" class="event-box">
+      <div class="date line">
+        <div class="day">{{event.date.day}}</div>
+        <div class="month">{{ event.date|date:"M" }}</div>
+        <div class="year">{{event.date.year}}</div>
       </div>
-      <div class="text">New technologies can enhance qulitative research</div>
-      <div class="date-box">Sat, 19 Aug 2023</div>
+      <div class="info">
+        <div class="headingSmall">{{ event.title }}</div>
+        <div class="otherinfo">
+          <div>{{ event.time }}</div>
+          <div>{{ event.venue }}</div>
+        </div>
+      </div>
     </a>
-    <a href="#" class="news-box">
-      <div class="imgcon">
-        <img src="assets/imgnss.jpg" alt="" class="news-img" />
-      </div>
-      <div class="text">
-        New technologies can enhance qulitative research lksdjlksajflk
-        asfjaslkfjaslkfj aslk faks jflkadsdjflksajflkasjflkasj flksa jflks jlfk
-        jslkf jslk jflk jflk lk dflks jlkj salkfj aslk fjsal jflksa flkaj
-        slkfjasl f sfj asljfsalkaj ksj flksj flksa fls jfsalkj
-      </div>
-      <div class="date-box">Sat, 19 Aug 2023</div>
-    </a>
-    <a href="#" class="news-box">
-      <div class="imgcon">
-        <img src="assets/img.jpg" alt="" class="news-img" />
-      </div>
-      <div class="text">New technologies can enhance qulitative research</div>
-      <div class="date-box">Sat, 19 Aug 2023</div>
-    </a>
-    <a href="#" class="news-box">
-      <div class="imgcon">
-        <img src="assets/img.jpg" alt="" class="news-img" />
-      </div>
-      <div class="text">New technologies can enhance qulitative research</div>
-      <div class="date-box">Sat, 19 Aug 2023</div>
-    </a>
-    <a href="#" class="news-box">
-      <div class="imgcon">
-        <img src="assets/img.jpg" alt="" class="news-img" />
-      </div>
-      <div class="text">New technologies can enhance qulitative research</div>
-      <div class="date-box">Sat, 19 Aug 2023</div>
-    </a>
-    <a href="#" class="news-box">
-      <div class="imgcon">
-        <img src="assets/img.jpg" alt="" class="news-img" />
-      </div>
-      <div class="text">New technologies can enhance qulitative research</div>
-      <div class="date-box">Sat, 19 Aug 2023</div>
-    </a>
-    <a href="#" class="news-box">
-      <div class="imgcon">
-        <img src="assets/img.jpg" alt="" class="news-img" />
-      </div>
-      <div class="text">New technologies can enhance qulitative research</div>
-      <div class="date-box">Sat, 19 Aug 2023</div>
-    </a>
-    <a href="#" class="news-box">
-      <div class="imgcon">
-        <img src="assets/img.jpg" alt="" class="news-img" />
-      </div>
-      <div class="text">New technologies can enhance qulitative research</div>
-      <div class="date-box">Sat, 19 Aug 2023</div>
-    </a>
+    {% endfor %}
   </div>
-</div>
 
-{% endblock %}
+  {% endblock %}
+</div>
