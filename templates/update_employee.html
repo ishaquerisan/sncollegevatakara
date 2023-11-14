@@ -1,14 +1,4 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Update Employee</title>
-    <link rel="stylesheet" href="{% static 'admin.css'%}" />
-    <link rel="stylesheet" href="{% static 'styles.css'%}" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-</head>
+{% extends "admin_header.html" %} {% block content %} {% load static %}
 <body>
     <body class="edit-body">
         <div class="edit-formcon">
@@ -55,5 +45,4 @@
         <a href="{% url 'employee_list' %}" class="btn-edit btn">Back to List</a>
 
     </div>
-</body>
-</html>
+    {% endblock %}

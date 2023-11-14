@@ -80,7 +80,7 @@ form button:hover {
 }
 
 .admin-body {
-  background-color: var(--third);
+  background-color: #d0e6ff;
   margin-top: 80px;
   justify-content: unset;
   height: auto;
@@ -156,6 +156,7 @@ table {
 }
 thead tr {
   background-color: #aebbff;
+  /* /////////////////////////////////////////////////// */
 }
 thead th {
   padding: 5px;

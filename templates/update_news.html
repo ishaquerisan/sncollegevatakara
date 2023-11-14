@@ -1,61 +1,46 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Edit News Article</title>
-    <link rel="stylesheet" href="{% static 'admin.css'%}" />
-    <link rel="stylesheet" href="{% static 'styles.css'%}" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
-  <body class="edit-body">
-    <div class="edit-formcon">
-      <h2>Edit News Article</h2>
-      <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <label for="title">Title:</label>
-        <input
-          class="inp"
-          type="text"
-          id="title"
-          name="title"
-          value="{{ article.title }}"
-          required
-        />
+{% extends "admin_header.html" %} {% block content %} {% load static %}
+<body class="edit-body">
+  <div class="edit-formcon">
+    <h2>Edit News Article</h2>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <label for="title">Title:</label>
+      <input
+        class="inp"
+        type="text"
+        id="title"
+        name="title"
+        value="{{ article.title }}"
+        required
+      />
 
-        <label for="description">Description:</label>
-        <textarea
-          id="description"
-          name="description"
-          required
-          class="tarea inp"
-        >
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" required class="tarea inp">
 {{ article.description }}</textarea
-        >
+      >
 
-        <label for="photos">Photo:</label>
-        {% for image in article.images.all %}
+      <label for="photos">Photo:</label>
+      {% for image in article.images.all %}
 
-        <img
-          class="imgpreview"
-          src="{{ image.image.url }}"
-          alt="Image"
-          width="100"
-        />
+      <img
+        class="imgpreview"
+        src="{{ image.image.url }}"
+        alt="Image"
+        width="100"
+      />
 
-        {% endfor %}
-        <input
-          class="inp"
-          type="file"
-          id="photo"
-          name="photos"
-          accept="image/*"
-        />
+      {% endfor %}
+      <input
+        class="inp"
+        type="file"
+        id="photo"
+        name="photos"
+        accept="image/*"
+      />
 
-        <button type="submit">Update</button>
-      </form>
-      <a href="{% url 'news_list' %}" class="btn-edit btn">Back to List</a>
-    </div>
-  </body>
-</html>
+      <button type="submit">Update</button>
+    </form>
+    <a href="{% url 'news_list' %}" class="btn-edit btn">Back to List</a>
+  </div>
+  {% endblock %}
+</body>

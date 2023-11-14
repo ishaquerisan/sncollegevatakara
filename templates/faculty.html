@@ -3,6 +3,7 @@
   <div class="heading">DEPARTMENT OF {{ depart }}</div>
 </div>
 
+{% comment %}
 <div class="container">
   <div class="sec-container">
     {% for employee in employees %}
@@ -25,5 +26,25 @@
     {% endfor %}
   </div>
 </div>
-
+{% endcomment %}
+<div class="container">
+  <div class="sec-container grid">
+    {% for employee in employees %}
+    <a href="#" class="news-box">
+      <div class="imgcon">
+        <img
+          src="{{ employee.photo.url }}"
+          alt="{{ employee.name }} "
+          class="news-img"
+        />
+      </div>
+      <div class="bold-head">{{ employee.position }}</div>
+      <div class="date-box">{{ employee.name }}</div>
+      <div class="flex-just-c-sb">
+        <pre>{{ employee.qualification}}</pre>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</div>
 {% endblock %}

@@ -1,13 +1,4 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Update Notification</title>
-    <link rel="stylesheet" href="{% static 'admin.css'%}" />
-    <link rel="stylesheet" href="{% static 'styles.css'%}" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    </head>
+{% extends "admin_header.html" %} {% block content %} {% load static %}
     <body class="edit-body">
       <div class="edit-formcon">
       <h2>Update Notification</h2>
@@ -26,6 +17,10 @@
           <div class=" rbcon">
             <input class="rb" type="radio" name="category" value="pg" id="pg" {% if notification.category == "pg" %}checked {%endif%}> </input>
             <label for="pg">PG</label>
+          </div>
+          <div class=" rbcon">
+            <input class="rb" type="radio" name="category" value="both" id="pg" {% if notification.category == "both" %}checked {%endif%}> </input>
+            <label for="both">BOTH</label>
           </div>
           </div>
         <label for="title">Title:</label>
@@ -50,5 +45,4 @@
       </form>
       <a href="{% url 'list_notifications' %}" class="btn-edit btn">Back to List</a>
     </div>
-  </body>
-</html>
+    {% endblock %}
