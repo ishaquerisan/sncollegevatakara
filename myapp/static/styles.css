@@ -92,6 +92,8 @@ navbar {
   cursor: pointer;
   user-select: none;
   height: 25px;
+  -webkit-tap-highlight-color:transparent;
+
 }
 
 .group:hover .nav {
@@ -405,16 +407,20 @@ navbar {
   padding: 20px;
   border-radius: 20px;
   min-height: 150px;
+  /* height: 10px; */
   text-decoration: none;
   color: black;
-  /* max-width: 600px; */
+  min-width: 100%;
+  max-width: 600px;
+}
+
+/* .w-600 {
+  width: 600px;
+} */
+.facbox{
   max-width: 400px;
+  min-width: unset;
 }
-
-.w-600 {
-  /* width: 600px; */
-}
-
 .news-box .text {
   text-align: start;
   vertical-align: top;
@@ -539,7 +545,7 @@ navbar {
   color: black;
   font-weight: 500;
 }
-.readmore img {
+.readmore img, .option img {
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -551,7 +557,7 @@ navbar {
   font-weight: 500;
 }
 
-.readmore .arrow {
+.readmore .arrow, .option .arrow {
   background-color: #cfe5ff;
 }
 
