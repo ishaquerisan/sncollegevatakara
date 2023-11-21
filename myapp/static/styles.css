@@ -92,8 +92,7 @@ navbar {
   cursor: pointer;
   user-select: none;
   height: 25px;
-  -webkit-tap-highlight-color:transparent;
-
+  -webkit-tap-highlight-color: transparent;
 }
 
 .group:hover .nav {
@@ -417,7 +416,7 @@ navbar {
 /* .w-600 {
   width: 600px;
 } */
-.facbox{
+.facbox {
   max-width: 400px;
   min-width: unset;
 }
@@ -545,7 +544,8 @@ navbar {
   color: black;
   font-weight: 500;
 }
-.readmore img, .option img {
+.readmore img,
+.option img {
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -557,7 +557,8 @@ navbar {
   font-weight: 500;
 }
 
-.readmore .arrow, .option .arrow {
+.readmore .arrow,
+.option .arrow {
   background-color: #cfe5ff;
 }
 
@@ -949,4 +950,16 @@ pre {
 .filterCon .selected {
   background-color: var(--primary);
   color: white;
+}
+
+.photoCon {
+  background-color: red;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.img-club {
+  height: 200px;
+  border-radius: 10px;
 }
