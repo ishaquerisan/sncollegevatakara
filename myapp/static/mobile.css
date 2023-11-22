@@ -225,4 +225,9 @@
   .imgcon{
     height: 200px;
   }
+
+  .phcon{
+    width:100%;
+    justify-content: center;
+  }
 }

@@ -54,6 +54,9 @@ def courses(request):
 def iqac(request):
     # employees = Employee.objects.all()
     return render(request, 'iqac.html')
+def staffcouncil(request):
+    # employees = Employee.objects.all()
+    return render(request, 'staffcouncil.html')
 def about(request):
     # employees = Employee.objects.all()
     return render(request, 'about.html')
