@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect ,get_object_or_404
 from .models import Employee
 from .models import Event
-from .models import News
+from .models import News,NewsImage
 from .models import Notification
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
@@ -196,14 +196,15 @@ def create_news(request):
         if request.method == 'POST':
             title = request.POST['title']
             description = request.POST['description']
-            d = date.today()
+            d = request.POST['date']
             photo = request.FILES['photos']
             # Create the news article
-            News.objects.create(title=title, description=description, date=d, image=photo)
+            # News.objects.create(title=title, description=description, date=d, image=photo)
+            news_article = News.objects.create(title=title, description=description,date=d)
 
             # Handle multiple image uploads
-            # for image_file in request.FILES.getlist('photos'):
-            #     NewsImage.objects.create(news_article=news_article, image=image_file)
+            for image_file in request.FILES.getlist('photos'):
+                NewsImage.objects.create(news_article=news_article, image=image_file)
 
             return redirect('news_list')
 
@@ -218,11 +219,13 @@ def update_news(request, pk):
             # Update the text fields (title and description)
             article.title = request.POST['title']
             article.description = request.POST['description']
-            photos = request.FILES.get('file')
-
-            if photos:
-                article.image = photos
+            # photos = request.FILES.get('file')
+            # if photos:
+            #     article.image = photos
             article.save()
+            for image_file in request.FILES.getlist('photos'):
+                NewsImage.objects.create(news_article=article, image=image_file)
+
             return redirect('news_list')
 
         return render(request, 'update_news.html', {'article': article})

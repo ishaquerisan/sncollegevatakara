@@ -25,9 +25,9 @@ class News(models.Model):
     image = models.ImageField(upload_to='news_images/', null=True, blank=True)
     def __str__(self):
         return self.title
-# class NewsImage(models.Model):
-#     news_article = models.ForeignKey(News, on_delete=models.CASCADE, related_name='images')
-#     image = models.ImageField(upload_to='news_images/')
+class NewsImage(models.Model):
+    news_article = models.ForeignKey(News, on_delete=models.CASCADE, related_name='images')
+    image = models.ImageField(upload_to='news_images/')
 
 class Notification(models.Model):
     category = models.CharField(max_length=50)

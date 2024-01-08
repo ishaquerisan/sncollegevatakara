@@ -4,8 +4,13 @@
 </div>
 <div class="container pad-top pad-bottom flex-align-start">
   <div class="part pad-right">
-    <img src="{{ news.image.url }}" alt="{{ news.title }}" class="img-big" />
-
+    {% for image in news.images.all %}
+    <img
+      src="{{ image.image.url }}"
+      alt="{{ article.title }}"
+      class="img-big"
+    />
+    {% endfor %}
     <div class="date-box">{{ news.date }}</div>
     <div class="bold-head">{{ news.title }}</div>
     <pre class="article">{{ news.description }}</pre>

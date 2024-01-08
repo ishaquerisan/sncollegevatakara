@@ -24,11 +24,13 @@
           <td>{{ article.description }}</td>
           <td>{{ article.date }}</td>
           <td>
+            {% for image in article.images.all %}
             <img
-              src="{{ article.image.url }}"
+              src="{{ image.image.url }}"
               alt="{{ article.title }}"
               width="100"
             />
+            {% endfor %}
           </td>
           <td>
             <a class="btn-edit btn" href="{% url 'update_news' article.id %}"
