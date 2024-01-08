@@ -8,13 +8,11 @@
     {% for article in newses %}
     <a href="#" class="news-box">
       <div class="imgcon">
-        {% for image in article.images.all %}
         <img
-          src="{{ image.image.url }}"
+          src="{{ article.images.first.image.url }}"
           alt="{{ article.title }}"
           width="100"
         />
-        {% endfor %}
       </div>
       <div class="text">{{ article.title }}</div>
       <div class="date-box">
