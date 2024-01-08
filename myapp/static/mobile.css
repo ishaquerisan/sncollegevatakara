@@ -155,7 +155,7 @@
   }
 }
 @media (max-width: 600px) {
-  .mw{
+  .mw.mw {
     min-width: 300px;
   }
 
@@ -226,12 +226,16 @@
     place-items: center;
   }
 
-  .imgcon{
+  .imgcon {
     height: 200px;
   }
 
-  .phcon{
-    width:100%;
+  .phcon {
+    width: 100%;
     justify-content: center;
+  }
+
+  .detailsbox .text {
+    padding-inline: 20px;
   }
 }
