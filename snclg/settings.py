@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-$-&18r!e&47enpm+)v2a-5&5#@tcnxmhv*amxh#0ii*c_o%*nx'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -74,19 +74,29 @@ WSGI_APPLICATION = 'snclg.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-   'default': {  
-        'ENGINE': 'django.db.backends.sqlite3',  
-        'NAME':os.path.join(BASE_DIR,'db.sqlite3')
-        #   'sncollege',  
-        # 'USER':'root',  
-        # 'PASSWORD':'',  
-        # 'HOST':'localhost',  
-        # 'PORT':'3306'  =-0[;]
+# DATABASES = {
+#    'default': {  
+#         'ENGINE': 'django.db.backends.sqlite3',  
+#         'NAME':os.path.join(BASE_DIR,'db.sqlite3')
+#         #   'sncollege',  
+#         # 'USER':'root',  
+#         # 'PASSWORD':'',  
+#         # 'HOST':'localhost',  
+#         # 'PORT':'3306'  =-0[;]
 
+#     }
+# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'sncollege',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',  # Or the hostname where your MySQL server is located
+        'PORT': '3306',           # Leave empty for the default MySQL port (usually 3306)
+      
     }
 }
-
 # AUTH_USER_MODEL = "app_custom_auth.User"
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
