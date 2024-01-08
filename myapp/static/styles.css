@@ -357,6 +357,7 @@ navbar {
 }
 .ncon .part {
   justify-content: flex-start;
+  flex-grow: 1;
 }
 
 .part {
@@ -453,6 +454,7 @@ navbar {
   align-items: center;
   justify-content: space-between;
   gap: 7px;
+  width: 100%;
 }
 
 .event-box {
@@ -561,6 +563,9 @@ navbar {
 .readmore .moretext {
   color: var(--primary);
   font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .readmore .arrow,
@@ -653,6 +658,7 @@ navbar {
 }
 .extra {
   justify-content: flex-start;
+  flex-grow: 1;
 }
 
 .pad-left {
