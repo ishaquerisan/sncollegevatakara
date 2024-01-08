@@ -9,6 +9,7 @@ from datetime import date
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth import login, authenticate
+from django.urls import reverse
 #home
 def index(request):
     # employees = Employee.objects.all()
@@ -232,8 +233,17 @@ def update_news(request, pk):
     return redirect('login') 
 
 # news/views.py
+def delete_image(request, news_id, image_id):
+    news_article = get_object_or_404(News, pk=news_id)
+    image = get_object_or_404(NewsImage, pk=image_id)
 
+  
+        # Check if the image is associated with the specified news article
+    if image.news_article == news_article:
+        image.delete()
 
+    return redirect(request.META.get('HTTP_REFERER', reverse('news_list')))
+   
 def delete_news(request, pk):
     if 'username' in request.session:
         event = get_object_or_404(News, pk=pk)

@@ -4,42 +4,81 @@
     <h2>Edit News Article</h2>
     <form method="post" enctype="multipart/form-data">
       {% csrf_token %}
-      <label for="title">Title:</label>
-      <input
-        class="inp"
-        type="text"
-        id="title"
-        name="title"
-        value="{{ article.title }}"
-        required
-      />
-
-      <label for="description">Description:</label>
-      <textarea id="description" name="description" required class="tarea inp">
+      <table width="500">
+        <tr>
+          <td colspan="2">
+            <label for="title">Title:</label>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <input
+              class="inp"
+              type="text"
+              id="title"
+              name="title"
+              value="{{ article.title }}"
+              required
+            />
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <label for="description">Description:</label>
+            <textarea
+              id="description"
+              name="description"
+              required
+              class="tarea inp"
+            >
 {{ article.description }}</textarea
-      >
+            >
+          </td>
+        </tr>
 
-      <label for="photos">Photo:</label>
-      {% for image in article.images.all %}
+        <tr>
+          <td colspan="2">
+            <label for="photos">Photo:</label>
+            {% for image in article.images.all %}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <img
+              class="imgpreview"
+              src="{{ image.image.url }}"
+              alt="Image"
+              width="100"
+            />
+          </td>
 
-      <img
-        class="imgpreview"
-        src="{{ image.image.url }}"
-        alt="Image"
-        width="100"
-      />
-
-      {% endfor %}
-      <input
-        class="inp"
-        type="file"
-        id="photo"
-        name="photos"
-        accept="image/*"
-        multiple
-      />
-
-      <button type="submit">Update</button>
+          <td>
+            <a
+              class="btn-delete btn"
+              href="{% url 'delete_image' news_id=article.pk image_id=image.pk %}"
+              >DELETE</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            {% endfor %}
+            <input
+              class="inp"
+              type="file"
+              id="photo"
+              name="photos"
+              accept="image/*"
+              multiple
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button type="submit">Update</button>
+          </td>
+        </tr>
+      </table>
     </form>
     <a href="{% url 'news_list' %}" class="btn-edit btn">Back to List</a>
   </div>
