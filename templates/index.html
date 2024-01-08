@@ -65,12 +65,13 @@
           by SNDP Union ..
         </div>
         <div class="readmore flex">
-          <a href="/principal" class="moretext">Read More</a
-          ><img
-            class="arrow"
-            src="{% static 'assets/rightarrow.svg' %}"
-            alt=""
-          />
+          <a href="/principal" class="moretext"
+            >Read More<img
+              class="arrow"
+              src="{% static 'assets/rightarrow.svg' %}"
+              alt=""
+            />
+          </a>
         </div>
       </div>
       <div class="mw image flexnum">
@@ -94,8 +95,13 @@
       {% endfor %}
 
       <div class="readmore flex">
-        <a href="{% url 'allnews' %}" class="moretext">Read All News</a
-        ><img class="arrow" src="{% static 'assets/downarrow.svg' %}" alt="" />
+        <a href="{% url 'allnews' %}" class="moretext"
+          >Read All News<img
+            class="arrow"
+            src="{% static 'assets/downarrow.svg' %}"
+            alt=""
+          />
+        </a>
       </div>
     </div>
   </div>
@@ -120,8 +126,10 @@
       {% endfor %}
 
       <div class="readmore flex">
-        <a href="{% url 'allevents' %}">View All Events</a
-        ><img src="{% static 'assets/rightarrow.svg' %}" alt="" />
+        <a href="{% url 'allevents' %}" class="moretext"
+          >View All Events
+          <img src="{% static 'assets/rightarrow.svg' %}" alt="" />
+        </a>
       </div>
     </div>
   </div>

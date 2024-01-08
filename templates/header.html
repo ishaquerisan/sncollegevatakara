@@ -1,9 +1,15 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    {% load static %}
+    <link
+      rel="icon"
+      type="image/png"
+      href="{% static 'assets/logoFavicon.png' %}"
+    />
+
     <script src="{% static 'script.js' %}" defer></script>
     <title>Sree Narayana College</title>
     <link rel="stylesheet" href="{% static 'styles.css'%}" />
@@ -13,7 +19,9 @@
   <body>
     <div class="navcon">
       <navbar class="flex n">
-        <img src="{% static 'assets/logo.png' %}" class="logo" alt="" />
+        <a href="{% url 'index' %}">
+          <img src="{% static 'assets/logo.png' %}" class="logo" alt="" />
+        </a>
         <img
           src="{% static 'assets/bm.svg' %}"
           alt=""
